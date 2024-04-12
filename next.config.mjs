@@ -6,6 +6,12 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  prisma: {
+    schema: 'prisma/schema.prisma',
+    generate: {
+      output: 'prisma/generated',
+    },
+  },
 }
 
 export default nextConfig

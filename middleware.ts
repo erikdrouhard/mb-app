@@ -10,5 +10,5 @@ export default middleware
 // need config to match the route
 // this stops any request to /todos and redirects to /
 export const config = {
-  matcher: ['/resellers/:id/:name/:email/:rest*'],
+  matcher: ['/resellers/:id/:name/:email/:rest'],
 }

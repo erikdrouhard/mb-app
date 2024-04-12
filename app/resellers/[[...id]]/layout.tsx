@@ -1,10 +1,5 @@
 const ResellerLayout = ({ children }) => {
-  return (
-    <div>
-      <h1 className="text-xl">Reseller Layout</h1>
-      {children}
-    </div>
-  )
+  return <div className="h-full flex flex-col">{children}</div>
 }
 
 export default ResellerLayout

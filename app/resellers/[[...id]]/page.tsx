@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Logo from '@/public/ModiBoxiLogo.svg'
 import Verified from '@/public/verified.svg'
 import NotFound from '@/public/reseller-not-found.svg'
+import QRCodeGenerator from '@/components/QRCodeGenerator'
 import db from '@/utils/db'
 
 const getResellers = async () => {
@@ -20,14 +21,12 @@ const getResellers = async () => {
 
 const ResellerIdPage = async ({ params }) => {
   const resellers = await getResellers()
-  console.log(resellers)
   const reseller = resellers.filter((reseller) => {
     // how to convert params.id value to a string?
     const id = params.id.toString()
     return reseller.resellerId === id
   })
 
-  console.log(reseller)
   return (
     <div className="pt-24 flex flex-col items-center align-middle">
       {reseller[0] ? (
@@ -54,6 +53,14 @@ const ResellerIdPage = async ({ params }) => {
             </dl>
           </div>
           <Image src={Logo} alt="ModiBoxi Logo" />
+          <div>
+            <div>
+              <h1>Generate and Download QR Code</h1>
+              <QRCodeGenerator size={50} />
+              <QRCodeGenerator size={100} />
+              <QRCodeGenerator size={200} />
+            </div>
+          </div>
         </div>
       ) : (
         <div className="flex flex-col items-center align-middle gap-8">

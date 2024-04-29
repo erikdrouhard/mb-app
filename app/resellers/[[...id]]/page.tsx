@@ -30,38 +30,37 @@ const ResellerIdPage = async ({ params }) => {
   return (
     <div className="pt-24 flex flex-col items-center align-middle">
       {reseller[0] ? (
-        <div className="flex flex-col items-center align-middle gap-8">
-          <div className="bg-white p-3 rounded-md flex flex-row items-center gap-4 border-solid border-4 border-[#56804C]">
-            <div className="h-full">
-              <Image src={Verified} alt="Verified" />
-            </div>
-            <dl className="flex flex-col gap-1 h-full justify-center text-lg">
-              <div className="flex flex-row gap-1">
-                <dt className="min-w-16 font-semibold">Name:</dt>
-                <dd>{reseller[0].name}</dd>
+        <>
+          <div className="flex flex-col items-center align-middle gap-8 pb-24">
+            <div className="bg-white p-3 rounded-md flex flex-row items-center gap-4 border-solid border-4 border-[#56804C]">
+              <div className="h-full">
+                <Image src={Verified} alt="Verified" />
               </div>
+              <dl className="flex flex-col gap-1 h-full justify-center text-lg">
+                <div className="flex flex-row gap-1">
+                  <dt className="min-w-16 font-semibold">Name:</dt>
+                  <dd>{reseller[0].name}</dd>
+                </div>
 
-              <div className="flex flex-row gap-1">
-                <dt className="min-w-16 font-semibold">Email:</dt>
-                <dd>{reseller[0].email}</dd>
-              </div>
+                <div className="flex flex-row gap-1">
+                  <dt className="min-w-16 font-semibold">Email:</dt>
+                  <dd>{reseller[0].email}</dd>
+                </div>
 
-              <div className="flex flex-row gap-1">
-                <dt className="min-w-16 font-semibold">ID:</dt>
-                <dd>{reseller[0].resellerId}</dd>
-              </div>
-            </dl>
+                <div className="flex flex-row gap-1">
+                  <dt className="min-w-16 font-semibold">ID:</dt>
+                  <dd>{reseller[0].resellerId}</dd>
+                </div>
+              </dl>
+            </div>
+            <Image src={Logo} alt="ModiBoxi Logo" />
           </div>
-          <Image src={Logo} alt="ModiBoxi Logo" />
-          <div>
-            <div>
-              <h1>Generate and Download QR Code</h1>
-              <QRCodeGenerator size={50} />
-              <QRCodeGenerator size={100} />
-              <QRCodeGenerator size={200} />
+          <div className="bg-[#3E5339] p-12 w-full flex justify-center">
+            <div className="w-1/2">
+              <QRCodeGenerator />
             </div>
           </div>
-        </div>
+        </>
       ) : (
         <div className="flex flex-col items-center align-middle gap-8">
           <div className="bg-white p-3 rounded-md flex flex-row gap-4 items-center border-solid border-4 border-rose-600">

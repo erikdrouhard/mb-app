@@ -1,13 +1,13 @@
 'use client'
 import { useRef, useEffect } from 'react'
 
-interface CanvasTestProps {
+interface CanvasProps {
   width: number
   height: number
   draw: (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => void
 }
 
-const CanvasTest = ({ width, height, draw }: CanvasTestProps) => {
+const Canvas = ({ width, height, draw }: CanvasProps) => {
   const canvas = useRef<HTMLCanvasElement | null>(null)
   console.log('canvas', canvas)
 
@@ -23,4 +23,4 @@ const CanvasTest = ({ width, height, draw }: CanvasTestProps) => {
   return <canvas ref={canvas} width={width} height={height} />
 }
 
-export default CanvasTest
+export default Canvas

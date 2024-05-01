@@ -57,7 +57,7 @@ const ResellerIdPage = async ({ params }) => {
           </div>
           <div className="bg-[#3E5339] p-12 w-full flex justify-center">
             <div className="w-1/2">
-              <QRCodeGenerator />
+              <QRCodeGenerator reseller={reseller[0]} />
             </div>
           </div>
         </>

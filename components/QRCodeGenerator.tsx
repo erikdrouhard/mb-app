@@ -12,7 +12,8 @@ interface drawQRCodeProps {
   (ctx: CanvasRenderingContext2D, x: number, y: number, size: number): void
 }
 
-const pageUrl = process.env.SITE_URL
+//temp url
+const pageUrl = 'https://mb-app-delta.vercel.app'
 
 const QRCodeGenerator = ({ reseller }) => {
   const pathname = usePathname()

@@ -1,11 +1,17 @@
+'use client'
+
 interface StackProps {
   direction?: 'row' | 'col'
-  gap?: number
+  className?: string
   children: React.ReactNode
 }
 
-const Stack = ({ gap = 5, direction = 'row', children }: StackProps) => {
-  return <div className={`flex flex-${direction} gap-${gap}`}>{children}</div>
+const Stack = ({ direction = 'row', className, children }: StackProps) => {
+  return (
+    <div className={`flex flex-${direction} gap-5 justify-center ${className}`}>
+      {children}
+    </div>
+  )
 }
 
 export default Stack

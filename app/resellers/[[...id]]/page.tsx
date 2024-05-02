@@ -28,7 +28,7 @@ const ResellerIdPage = async ({ params }) => {
   })
 
   return (
-    <div className="pt-24 flex flex-col items-center align-middle">
+    <div className="pt-24 flex flex-col items-center align-middle h-full">
       {reseller[0] ? (
         <>
           <div className="flex flex-col items-center align-middle gap-8 pb-24">
@@ -55,7 +55,7 @@ const ResellerIdPage = async ({ params }) => {
             </div>
             <Image src={Logo} alt="ModiBoxi Logo" />
           </div>
-          <div className="bg-[#3E5339] p-12 w-full flex justify-center">
+          <div className="bg-[#3E5339] p-12 w-full flex justify-center flex-1">
             <div className="w-1/2">
               <QRCodeGenerator reseller={reseller[0]} />
             </div>

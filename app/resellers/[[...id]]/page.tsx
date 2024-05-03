@@ -21,11 +21,25 @@ const getResellers = async () => {
 
 const ResellerIdPage = async ({ params }) => {
   const resellers = await getResellers()
-  const reseller = resellers.filter((reseller) => {
-    // how to convert params.id value to a string?
-    const id = params.id.toString()
-    return reseller.resellerId === id
-  })
+  try {
+    const reseller = resellers.filter((reseller) => {
+      // how to convert params.id value to a string?
+      const id = params.id.toString()
+      return reseller.resellerId === id
+    })
+  } catch (error) {
+    return (
+      <div className="flex flex-col items-center align-middle gap-8">
+        <div className="bg-white p-3 rounded-md flex flex-row gap-4 items-center border-solid border-4 border-rose-600">
+          <div className="h-full">
+            <Image src={NotFound} alt="Not found" />
+          </div>
+          <p className="font-semibold">Reseller not found.</p>
+        </div>
+        <Image src={Logo} alt="ModiBoxi Logo" />
+      </div>
+    )
+  }
 
   return (
     <div className="pt-24 flex flex-col items-center align-middle h-full">

@@ -4,25 +4,25 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-interface CsvRow {
-  backerNumber: string
-  backerId: string
-  name: string
-  email: string
-  pledgeAmount: string
-  resellerId: string
-}
+// interface CsvRow {
+//   backerNumber: string
+//   backerId: string
+//   name: string
+//   email: string
+//   pledgeAmount: string
+//   resellerId: string
+// }
 
 async function main() {
   const file = fs.createReadStream(
     './prisma/modi-boxi-commercial-resellers.csv'
   )
-  const rows: CsvRow[] = []
+  const rows = []
 
   Papa.parse(file, {
     header: true,
     step: function (result) {
-      rows.push(result.data as CsvRow)
+      rows.push(result.data)
     },
     complete: async function () {
       console.log(rows)

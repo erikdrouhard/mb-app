@@ -21,8 +21,9 @@ const getResellers = async () => {
 
 const ResellerIdPage = async ({ params }) => {
   const resellers = await getResellers()
+  let reseller
   try {
-    const reseller = resellers.filter((reseller) => {
+    reseller = resellers.filter((reseller) => {
       // how to convert params.id value to a string?
       const id = params.id.toString()
       return reseller.resellerId === id

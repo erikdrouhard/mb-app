@@ -16,10 +16,12 @@ interface drawQRCodeProps {
 const pageUrl = 'https://mb-app-delta.vercel.app'
 
 const QRCodeGenerator = ({ reseller }) => {
-  const pathname = usePathname()
+  const { resellerId } = reseller
 
   const drawQRCode: drawQRCodeProps = async (ctx, x, y, size) => {
-    const qrDataURL = await QRCode.toDataURL(`${pageUrl}${pathname}`)
+    const qrDataURL = await QRCode.toDataURL(
+      `${pageUrl}/verified/${resellerId}`
+    )
     const image = new Image()
     image.onload = () => {
       ctx.drawImage(image, x, y, size, size)
@@ -30,10 +32,18 @@ const QRCodeGenerator = ({ reseller }) => {
   const downloadAll = () => {
     const canvases = document.querySelectorAll('canvas')
     canvases.forEach((canvas, index) => {
-      const link = document.createElement('a')
-      link.download = `qrcode${index + 1}.png`
-      link.href = canvas.toDataURL()
-      link.click()
+      const sizes = [300, 600, 900] // small, medium, and large sizes
+      sizes.forEach((size, sizeIndex) => {
+        const newCanvas = document.createElement('canvas')
+        newCanvas.width = size
+        newCanvas.height = size
+        const ctx = newCanvas.getContext('2d')
+        ctx.drawImage(canvas, 0, 0, size, size)
+        const link = document.createElement('a')
+        link.download = `qrcode${index + 1}_${sizeIndex + 1}.png`
+        link.href = newCanvas.toDataURL()
+        link.click()
+      })
     })
   }
 

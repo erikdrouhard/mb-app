@@ -13,7 +13,7 @@ interface drawQRCodeProps {
 }
 
 // URL to be used in the QR code
-const URL = 'reseller.modiboxi.com'
+const URL = 'https://resellers.modiboxi.com'
 
 const QRCodeGenerator = ({ reseller }) => {
   const { resellerId } = reseller

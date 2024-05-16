@@ -12,7 +12,7 @@ interface drawQRCodeProps {
   (ctx: CanvasRenderingContext2D, x: number, y: number, size: number): void
 }
 
-//temp url
+// URL to be used in the QR code
 const URL = 'reseller.modiboxi.com'
 
 const QRCodeGenerator = ({ reseller }) => {

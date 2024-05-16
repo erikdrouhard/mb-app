@@ -13,15 +13,13 @@ interface drawQRCodeProps {
 }
 
 //temp url
-const pageUrl = 'https://mb-app-delta.vercel.app'
+const URL = 'reseller.modiboxi.com'
 
 const QRCodeGenerator = ({ reseller }) => {
   const { resellerId } = reseller
 
   const drawQRCode: drawQRCodeProps = async (ctx, x, y, size) => {
-    const qrDataURL = await QRCode.toDataURL(
-      `${pageUrl}/verified/${resellerId}`
-    )
+    const qrDataURL = await QRCode.toDataURL(`${URL}/verified/${resellerId}`)
     const image = new Image()
     image.onload = () => {
       ctx.drawImage(image, x, y, size, size)

@@ -5,9 +5,10 @@ interface CanvasProps {
   width: number
   height: number
   draw: (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D) => void
+  style: React.CSSProperties
 }
 
-const Canvas = ({ width, height, draw }: CanvasProps) => {
+const Canvas = ({ width, height, draw, style }: CanvasProps) => {
   const canvas = useRef<HTMLCanvasElement | null>(null)
   console.log('canvas', canvas)
 
@@ -20,7 +21,7 @@ const Canvas = ({ width, height, draw }: CanvasProps) => {
     }
   }, [width, height, draw])
 
-  return <canvas ref={canvas} width={width} height={height} />
+  return <canvas ref={canvas} width={width} height={height} style={style} />
 }
 
 export default Canvas

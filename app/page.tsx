@@ -10,7 +10,7 @@ export default function Home() {
       </section>
       <section className="mt-24">
         <h2 className="text-3xl font-bold mb-4">
-          Commerical QR Code Generator
+          Commercial QR Code Generator
         </h2>
         <GetQRCodeForm />
       </section>

@@ -57,7 +57,7 @@ const GetQRCodeForm = () => {
         id="id"
         name="id"
         onChange={handleChange}
-        placeholder="Enter your commerical ID..."
+        placeholder="Enter your reseller ID..."
         className="p-2 mb-8 border rounded-md w-full text-black"
       />
       <button

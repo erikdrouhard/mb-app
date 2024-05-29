@@ -301,7 +301,7 @@ const QRCodeGenerator = ({ reseller }) => {
           Download
         </button>
         <Stack>
-          <Canvas
+          {/* <Canvas
             width={600} // High resolution width for drawing
             height={600} // High resolution height for drawing
             draw={(canvas, ctx) => {
@@ -312,6 +312,9 @@ const QRCodeGenerator = ({ reseller }) => {
 
               ctx.fillStyle = '#C6D5C3'
               ctx.fillRect(0, 0, canvas.width / 2, canvas.height)
+
+              ctx.fillStyle = '#3E5339'
+              ctx.fillRect(canvas.width / 2, 0, canvas.width / 2, canvas.height)
 
               const img = new Image()
               img.src = logo.src
@@ -327,10 +330,10 @@ const QRCodeGenerator = ({ reseller }) => {
               }
 
               ctx.fillStyle = '#608058'
-              ctx.font = 'bold 40px sans-serif'
+              ctx.font = 'bold 48px sans-serif'
               ctx.textAlign = 'center'
               ctx.fillText('OFFICIAL', canvas.width / 3.9, canvas.height / 1.5)
-              ctx.fillText('RESELLER', canvas.width / 3.9, canvas.height / 1.35)
+              ctx.fillText('RESELLER', canvas.width / 3.9, canvas.height / 1.34)
 
               // drawQRCode parameters: ctx, x, y, size
               drawQRCode(ctx, canvas.width / 1.75, canvas.height / 4, 144 * 1.5)
@@ -352,7 +355,7 @@ const QRCodeGenerator = ({ reseller }) => {
               ctx.strokeRect(0, 0, canvas.width, canvas.height)
             }}
             style={{ width: '300px', height: '300px' }} // Scaled down for display
-          />
+          /> */}
           <Canvas
             width={600} // High resolution width for drawing
             height={600} // High resolution height for drawing
@@ -365,13 +368,16 @@ const QRCodeGenerator = ({ reseller }) => {
               ctx.fillStyle = '#C6D5C3'
               ctx.fillRect(0, 0, canvas.width / 2, canvas.height)
 
+              ctx.fillStyle = '#3E5339'
+              ctx.fillRect(canvas.width / 2, 0, canvas.width / 2, canvas.height)
+
               ctx.fillStyle = '#2D3C2A'
-              ctx.fillRect(0, 0, canvas.width, 56)
+              ctx.fillRect(0, 0, canvas.width, 80)
 
               ctx.fillStyle = '#E3EAE1'
-              ctx.font = 'bold 32px sans-serif'
+              ctx.font = 'bold 48px sans-serif'
               ctx.textAlign = 'center'
-              ctx.fillText('OFFICIAL RESELLER', canvas.width / 2, 40)
+              ctx.fillText('OFFICIAL RESELLER', canvas.width / 2, 60)
 
               const img = new Image()
               img.src = logo.src
